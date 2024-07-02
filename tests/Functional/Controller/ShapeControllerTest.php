@@ -21,4 +21,23 @@ class ShapeControllerTest extends ApiTestCase
         ]);
     }
 
+    public function testCanCalculateTriangleSurfaceAndCircumference(): void
+    {
+        $a = 3;
+        $b = 4;
+        $c = 5;
+
+        static::createClient()->request('GET', "/triangle/$a/$b/$c");
+
+        $this->assertResponseIsSuccessful();
+        $this->assertJsonContains([
+            'type' => 'triangle',
+            'a' => 3,
+            'b' => 4,
+            'c' => 5,
+            'surface' => 6,
+            'circumference' => 12,
+        ]);
+    }
+
 }
