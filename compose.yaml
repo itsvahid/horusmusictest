@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: ./.docker/php
+      dockerfile: Dockerfile
+    volumes:
+      - .:/var/www/html
+    command: >
+      bash -c "
+      echo 'Running initial setup...';
+      echo 'Installing composer packages...';
+      composer install;
+      echo 'Setup Completed';
+      exec php-fpm;"
+    networks:
+      - horus
+
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - .:/var/www/html
+      - ./.docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+    networks:
+      - horus
+
+volumes:
+  ###> doctrine/doctrine-bundle ###
+  database_data:
+###< doctrine/doctrine-bundle ###
+
+networks:
+  horus:
+    driver: bridge
