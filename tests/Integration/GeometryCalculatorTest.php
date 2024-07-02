@@ -34,7 +34,7 @@ class GeometryCalculatorTest extends KernelTestCase
         $geometryCalculator = static::getContainer()->get('geometry_calculator');
 
         $circle = new Circle(2);
-        $triangle = new Triangle(3,4,5);
+        $triangle = new Triangle(3, 4, 5);
 
         $surfaceTotal = $geometryCalculator->sumSurfaces($circle, $triangle);
 
@@ -66,11 +66,10 @@ class GeometryCalculatorTest extends KernelTestCase
         $geometryCalculator = static::getContainer()->get('geometry_calculator');
 
         $circle = new Circle(2);
-        $triangle = new Triangle(3,4,5);
+        $triangle = new Triangle(3, 4, 5);
 
         $circumferenceTotal = $geometryCalculator->sumCircumferences($circle, $triangle);
 
         $this->assertSame(24.57, (float) number_format($circumferenceTotal, 2));
     }
-
 }

@@ -2,7 +2,6 @@
 
 namespace App\Service;
 
-
 use App\Domain\Contract\Shape2D;
 
 class GeometryCalculator

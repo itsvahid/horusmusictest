@@ -2,8 +2,8 @@
 
 namespace App\Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
 use App\Domain\Model\Circle;
+use PHPUnit\Framework\TestCase;
 
 class CircleTest extends TestCase
 {

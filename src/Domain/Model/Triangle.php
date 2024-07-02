@@ -2,10 +2,9 @@
 
 namespace App\Domain\Model;
 
-
 use App\Domain\Contract\Shape2D;
 
-readonly class Triangle implements Shape2D
+class Triangle implements Shape2D
 {
     private const TYPE = 'triangle';
 

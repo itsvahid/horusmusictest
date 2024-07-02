@@ -40,7 +40,7 @@ class TriangleTest extends TestCase
      */
     public function testIsValidTriangle(float $a, float $b, float $c, bool $isValid)
     {
-        if ($isValid === false) {
+        if (false === $isValid) {
             $this->expectException(\InvalidArgumentException::class);
         } else {
             $this->assertTrue(true);
@@ -73,7 +73,7 @@ class TriangleTest extends TestCase
 
             // Degenerate triangles
             [1, 1, 2, false],
-            [2, 3, 5, false]
+            [2, 3, 5, false],
         ];
     }
 }

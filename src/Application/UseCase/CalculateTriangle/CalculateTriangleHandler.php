@@ -2,7 +2,6 @@
 
 namespace App\Application\UseCase\CalculateTriangle;
 
-
 use App\Domain\Model\Triangle;
 
 class CalculateTriangleHandler
